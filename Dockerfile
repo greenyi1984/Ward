@@ -1,5 +1,5 @@
 # Base image with maven installed already
-FROM maven:3.6.3-jdk-8 as builder
+FROM maven:3.6.3-jdk-8-openj9 as builder
 
 # Copy whole project inside docker
 COPY . .
@@ -9,7 +9,7 @@ RUN mvn clean package
 
 
 # Base image containing OpenJDK 8, maintained by RedHat
-FROM openjdk:8-jre-alpine
+FROM arm64v8/openjdk:8
 
 # Update apt repo and install sudo package
 RUN apk update && \
