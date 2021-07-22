@@ -9,7 +9,7 @@ RUN mvn clean package
 
 
 # Base image containing OpenJDK 8, maintained by RedHat
-FROM arm32v7/openjdk
+FROM openjdk:8u141-jdk
 
 # Update apt repo and install sudo package
 RUN apk update && \
